@@ -28,3 +28,10 @@ Ready: 高电平表示接收方可以接收发送方的请求或应答。
 ![state_change](https://github.com/Fi-tang/computer_organization_lab/blob/P3_Custom_MIPS_functional_processors/state_change.PNG)
 
 在编写 Verilog 时，使用三段式状态机描述的标准语法。
+
+具体的代码内容，主要参考 **multi_cycle.v** 文件。
+可以先从 第 695 行，观察整个状态的转换，定义了 current_state 和 next_state 两个变量，对于之前提到了处理器的取指(IF), 译码(ID), 执行(EXE), 访存(MEM), 写回(WB)，
+对不同的指令而言，有的指令需要经过完整的 5 步结束，有的指令可能只涉及 IF, ID, EXE, WB 不需要访存，
+对于一些简单的跳转指令，或许不需要经过 EXE, 只有 IF, ID 两个步骤。
+所以在695 行开头的三段式状态机中，需要对每一个处理器执行阶段，严格判断其下一个状态，从而赋予不同的使能信号。
+两个需要关注的时序逻辑，分别是第 45 行的状态赋值，以及 第 58 行的 PC 赋值，其余的 assign 语句与单周期的处理有相似之处。
