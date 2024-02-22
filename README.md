@@ -12,3 +12,8 @@
 本次需要完成了 ALU 逻辑结构如下所示:
 
 ![ALU_structure](https://github.com/Fi-tang/computer_organization_lab/blob/P1_ALU/P1_ALU/alu.PNG)
+
+实际上本次的任务在于，对于 add/sub/and/or/beq/slt 这6 条输入 ALU 的指令而言，
+假设现在给定两个32bit的操作数 a 和 b, 在分别传递不同的 ALU operation 值时，
+输出端的 32bit Result, 以及进位 Zero 和 Overflow 溢出位分别应该设置成多少。
+具体的设计思路可以参考 **P1_ALU** 文件下的 prj1.pdf 实验报告。
